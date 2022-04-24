@@ -6,7 +6,9 @@
 The <html> element is known as the root element of a HTML page. All other elements are encased within it. -->
 <html>
   <!-- The <head> element contains meta information about the HTML page, information that is not rendered or displayed by the browser -->
-  <head>
+  <head><style>
+      @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Sigmar+One&display=swap');
+      </style>
     <!-- The meta tag defines meta information in the HTML document. In this case, we are defining the charset. UTF-8 allows us to use emojis in the CodeSandbox environment -->
     <meta charset="UTF-8" />
     <!-- The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab) and is the default name given to a bookmark of a webpage. -->
@@ -63,16 +65,30 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <h1 id="header">🚀 Basics Project 3: Blackjack 🚀</h1>
     <!-- The <div> tag defines a division or a section in an HTML document, and is commonly use as a "container" for nested HTML elements. -->
     <div class="container">
-      <!-- The <p> tag defines a paragraph element. -->
-      <p>Input:</p>
+      <div id="intro-text"><p style="text-align: center;">
+        Welcome to the 🍍 under the sea!</p> </div>
+        <p style="text-align: center;">Win a round of blackjack against Spongebob🧽 & <br>win a Krabby Patty!🍔</p>
+
+        <!-- The <p> tag defines a paragraph element. -->
+      
+<!--
+      <p style="text-align: center;"><b>Input:</p></b> 
+-->
       <!-- The self-closing <input /> tag represents a field for a user to enter input. -->
-      <input id="input-field" />
+    <!--
+      <input id="input-field" /> -->
       <!-- The self-closing <br /> tag represents a line break - a line's worth of spacing before dispalying the next element. -->
       <br />
       <!-- The <button> tag represents.. you guessed it! a button. -->
-      <button id="submit-button">Submit</button>
-      <p>Output:</p>
-      <div class="output-div" id="output-div"></div>
+          <p style="text-align: center;">
+      <button id="submit-button">Start</button>
+      <button id="hit-button">Hit</button>
+      <button id="stand-button">Stand</button>
+      <button id="restart-button">Restart</button> </p>
+      <p style="text-align: center; color:#0457a0";><b>Output:</p></b>
+      <div class="output-div" id="output-div" style="text-align: center;">
+          <img src="https://c.tenor.com/sYkb-MmqRmAAAAAC/spongebob-hola.gif" /> <br>Click on the <b>Start</b> button to begin!
+      </div> 
     </div>
     <!-- Everything below this is incorporating JavaScript programming logic into the webpage. -->
     <!-- The script tag encloses JavaScript syntax for the browser to interpret programtically -->
@@ -85,6 +101,12 @@ The <html> element is known as the root element of a HTML page. All other elemen
       // When the submit button is clicked, access the text entered by the user in the input field
       // And pass it as an input parameter to the main function as defined in script.js
       button.addEventListener("click", function () {
+var result = main();
+var output = document.querySelector("#output-div");
+output.innerHTML = result;
+      })
+      /*
+      button.addEventListener("click", function () {
         // Set result to input value
         var input = document.querySelector("#input-field");
         // Store the output of main() in a new variable
@@ -96,7 +118,35 @@ The <html> element is known as the root element of a HTML page. All other elemen
 
         // Reset input value
         input.value = "";
-      });
+      })*/
+      
+      // declare hit button
+      var button = document.querySelector("#hit-button");
+      // add event listener
+      button.addEventListener("click", function () {
+        var result = main("hit");
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+      })
+
+      // declare stand button
+      var button = document.querySelector("#stand-button");
+      // add event listener
+      button.addEventListener("click", function () {
+        var result = main("stand");
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result; 
+      })
+      
+        // declare restart button
+      var button = document.querySelector("#restart-button");
+      // add event listener
+      button.addEventListener("click", function () {
+        var result = main("restart");
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+      })
+
     </script>
   </body>
 </html>
