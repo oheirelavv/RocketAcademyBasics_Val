@@ -183,7 +183,7 @@ var main = function (input) {
       computerDrawnCards[0].name
     } ${
       computerDrawnCards[0].suit
-    } <br><br>Click <b>HIT</b> or <b>STAND</b> to continue.`;
+    } <br><br> Click <b>HIT</b> to get another card or <b>STAND</b> to see the results.`;
 
     if (playerDrawnCards.length == 2 && playerSum == 21) {
       submitButton = document.getElementById("submit-button").disabled = true;
@@ -238,7 +238,7 @@ var main = function (input) {
     } else {
       myOutputValue = `<b>Your cards:</b><br>${getDefaultOutput(
         playerDrawnCards
-      )}<br><br> Click <b>HIT</b> or <b>STAND</b> to continue`;
+      )}<br><br> Click <b>HIT</b> to get another card or <b>STAND</b> to see the results.`;
     }
   } else if (mode == "stand") {
     // player can only choose to press RESTART button
